@@ -1,0 +1,25 @@
+services:
+  rproxy:
+    container_name: rproxy
+    image: "rproxy:latest"
+    build:
+      context: ../rproxy
+    ports:
+      - "80:80"
+    depends_on:
+      - miam
+      - cv
+  miam:
+    container_name: miam
+    image: "miam:latest"
+    environment:
+        - PORT=8081
+    build:
+      context: ../miam
+  cv:
+    container_name: cv
+    image: "cv:latest"
+    environment:
+        - PORT=8082
+    build:
+      context: ../cv
