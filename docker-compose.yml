@@ -16,6 +16,8 @@ services:
         - PORT=8081
     build:
       context: ../miam
+    volumes: 
+     - /data/miamdb:/data/miamdb
   cv:
     container_name: cv
     image: "cv:latest"
