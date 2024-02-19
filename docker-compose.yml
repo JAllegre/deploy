@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   rproxy:
     container_name: rproxy
@@ -9,6 +10,9 @@ services:
     depends_on:
       - miam
       - cv
+    deploy:
+      restart_policy:
+        condition: any
   miam:
     container_name: miam
     image: "miam:latest"
@@ -18,6 +22,9 @@ services:
       context: ../miam
     volumes: 
      - /data/miamdb:/data/miamdb
+    deploy:
+      restart_policy:
+        condition: any
   cv:
     container_name: cv
     image: "cv:latest"
@@ -25,3 +32,6 @@ services:
         - PORT=8082
     build:
       context: ../cv
+    deploy:
+      restart_policy:
+        condition: any
