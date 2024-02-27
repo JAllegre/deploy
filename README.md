@@ -1,12 +1,21 @@
 # deploy
 
-Deploy tools
-First time:
+### At initial install, git pull all services including reverse proxy (rproxy, miam, cv, ...)
 
-> docker-compose up -d --force-recreate --always-recreate-deps
+```
+docker-compose down
 
-Else:
+docker compose build
 
-> docker-compose down && docker rmi miam rproxy cv && docker-compose up -d --force-recreate --always-recreate-deps
+docker compose up -d
+```
 
-certbot --nginx -d jallegre.freeboxos.fr --non-interactive --agree-tos -m ju.allegre@gmail.com
+### At service update, git pull only this service
+
+```
+docker-compose down <SERVICE_NAME>
+
+docker compose build <SERVICE_NAME>
+
+docker compose up -d <SERVICE_NAME>
+```

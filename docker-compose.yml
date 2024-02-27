@@ -12,8 +12,19 @@ services:
       - 80:80
       - 443:443
     depends_on:
-    #   - miam
+       - root-page
        - cv
+    #   - miam
+    deploy:
+      restart_policy:
+        condition: any
+  root-page:
+    container_name: root-page
+    image: "root-page:latest"
+    environment:
+      - PORT=8080
+    build:
+      context: ../root-page
     deploy:
       restart_policy:
         condition: any
