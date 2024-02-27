@@ -2,7 +2,7 @@ version: '3.8'
 services:
   rproxy:
     container_name: rproxy
-    image: "rproxy:latest"
+    image: "jallegre/rproxy:latest"
     build:
       context: ../rproxy
     ports:
@@ -15,7 +15,7 @@ services:
         condition: any
   miam:
     container_name: miam
-    image: "miam:latest"
+    image: "jallegre/miam:latest"
     environment:
         - PORT=8081
     build:
@@ -27,7 +27,7 @@ services:
         condition: any
   cv:
     container_name: cv
-    image: "cv:latest"
+    image: "jallegre/cv:latest"
     environment:
         - PORT=8082
     build:
