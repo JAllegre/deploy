@@ -1,8 +1,9 @@
 version: "3.8"
+
 services:
   rproxy:
     container_name: rproxy
-    image: "jallegre/rproxy:latest"
+    image: "rproxy:latest"
     build:
       context: ../rproxy
     ports:
@@ -13,21 +14,21 @@ services:
     deploy:
       restart_policy:
         condition: any
-  miam:
-    container_name: miam
-    image: "jallegre/miam:latest"
-    environment:
-      - PORT=8081
-    build:
-      context: ../miam
-    volumes:
-      - /data/miamdb:/data/miamdb
-    deploy:
-      restart_policy:
-        condition: any
+  # miam:
+  #   container_name: miam
+  #   image: "miam:latest"
+  #   environment:
+  #     - PORT=8081
+  #   build:
+  #     context: ../miam
+  #   volumes:
+  #     - /data/miamdb:/data/miamdb
+  #   deploy:
+  #     restart_policy:
+  #       condition: any
   cv:
     container_name: cv
-    image: "jallegre/cv:latest"
+    image: "cv:latest"
     environment:
       - PORT=8082
     build:
