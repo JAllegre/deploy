@@ -4,11 +4,13 @@ services:
   rproxy:
     container_name: rproxy
     image: "rproxy:latest"
+    volumes:
+       - /etc/letsencrypt/live/jallegre.freeboxos.fr:/etc/letsencrypt/live/jallegre.freeboxos.fr
     build:
       context: ../rproxy
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     # depends_on:
     #   - miam
     #   - cv
