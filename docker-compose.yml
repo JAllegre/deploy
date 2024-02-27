@@ -11,9 +11,9 @@ services:
     ports:
       - 80:80
       - 443:443
-    # depends_on:
+    depends_on:
     #   - miam
-    #   - cv
+       - cv
     deploy:
       restart_policy:
         condition: any
