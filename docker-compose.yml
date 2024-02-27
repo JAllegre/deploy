@@ -8,9 +8,20 @@ services:
       context: ../rproxy
     ports:
       - "80:80"
+      - "443:443"
     # depends_on:
     #   - miam
     #   - cv
+    deploy:
+      restart_policy:
+        condition: any
+  cv:
+    container_name: cv
+    image: "cv:latest"
+    environment:
+      - PORT=8082
+    build:
+      context: ../cv
     deploy:
       restart_policy:
         condition: any
@@ -26,13 +37,3 @@ services:
   #   deploy:
   #     restart_policy:
   #       condition: any
-  cv:
-    container_name: cv
-    image: "cv:latest"
-    environment:
-      - PORT=8082
-    build:
-      context: ../cv
-    deploy:
-      restart_policy:
-        condition: any
