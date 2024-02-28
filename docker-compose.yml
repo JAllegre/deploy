@@ -14,7 +14,7 @@ services:
     depends_on:
        - root-page
        - cv
-    #   - miam
+       - miam
     deploy:
       restart_policy:
         condition: any
@@ -38,15 +38,15 @@ services:
     deploy:
       restart_policy:
         condition: any
-  # miam:
-  #   container_name: miam
-  #   image: "miam:latest"
-  #   environment:
-  #     - PORT=8081
-  #   build:
-  #     context: ../miam
-  #   volumes:
-  #     - /data/miamdb:/data/miamdb
-  #   deploy:
-  #     restart_policy:
-  #       condition: any
+  miam:
+    container_name: miam
+    image: "miam:latest"
+    environment:
+      - PORT=8081
+    build:
+      context: ../miam
+    volumes:
+      - /data/miamdb:/data/miamdb
+    deploy:
+      restart_policy:
+        condition: any
