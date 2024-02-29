@@ -38,7 +38,7 @@ services:
     deploy:
       restart_policy:
         condition: any
-  maim-front:
+  miam-front:
     container_name: miam-front
     image: "miam-front:latest"
     environment:
