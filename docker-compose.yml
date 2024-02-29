@@ -5,16 +5,16 @@ services:
     container_name: rproxy
     image: "rproxy:latest"
     volumes:
-       - /etc/letsencrypt/:/etc/letsencrypt/
+      - /etc/letsencrypt/:/etc/letsencrypt/
     build:
       context: ../rproxy
     ports:
       - 80:80
       - 443:443
     depends_on:
-       - root-page
-       - cv
-#       - miam
+      - root-page
+      - cv
+    #       - miam
     deploy:
       restart_policy:
         condition: any
@@ -38,15 +38,25 @@ services:
     deploy:
       restart_policy:
         condition: any
-  miam:
-    container_name: miam
-    image: "miam:latest"
+  maim-front:
+    container_name: miam-front
+    image: "miam-front:latest"
     environment:
       - PORT=8081
     build:
-      context: ../miam
-    volumes:
-      - /data/miamdb:/data/miamdb
+      context: ../miam2/front
     deploy:
       restart_policy:
         condition: any
+  # miam:
+  #   container_name: miam
+  #   image: "miam:latest"
+  #   environment:
+  #     - PORT=8081
+  #   build:
+  #     context: ../miam
+  #   volumes:
+  #     - /data/miamdb:/data/miamdb
+  #   deploy:
+  #     restart_policy:
+  #       condition: any
