@@ -24,4 +24,4 @@ docker compose up -d <SERVICE_NAME>
 
 ## Tools
 
-- gitsubdir: Allow to apply common command to sub dirs
+- "gitsubdir": Allow to apply common command to sub dirs
