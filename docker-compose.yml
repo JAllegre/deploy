@@ -14,7 +14,8 @@ services:
     depends_on:
       - root-page
       - cv
-    #       - miam
+      - miam-front
+      - miam-back
     deploy:
       restart_policy:
         condition: any
