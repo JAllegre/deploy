@@ -42,21 +42,23 @@ services:
     container_name: miam-front
     image: "miam-front:latest"
     environment:
-      - PORT=8081
+      - PORT=8083
     build:
-      context: ../miam2/front
+      context: ../miam2/ #Must be the root of the project to get shared/common files
+      dockerfile: ../miam2/front.Dockerfile
     deploy:
       restart_policy:
         condition: any
-  # miam:
-  #   container_name: miam
-  #   image: "miam:latest"
-  #   environment:
-  #     - PORT=8081
-  #   build:
-  #     context: ../miam
-  #   volumes:
-  #     - /data/miamdb:/data/miamdb
-  #   deploy:
-  #     restart_policy:
-  #       condition: any
+  miam-back:
+    container_name: miam-back
+    image: "miam-back:latest"
+    environment:
+      - PORT=8084
+    build:
+      context: ../miam2/ #Must be the root of the project to get shared/common files
+      dockerfile: ../miam2/back.Dockerfile
+    volumes:
+      - /data/miamdb:/data/miamdb
+    deploy:
+      restart_policy:
+        condition: any
