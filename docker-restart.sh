@@ -7,10 +7,10 @@ else
   echo "Restart container $1"
 fi
 
-sudo docker compose down 
+sudo docker compose down $1
 
-sudo docker compose build 
+sudo docker compose build $1
 
-sudo docker compose up -d
+sudo docker compose up -d $1
 
 
