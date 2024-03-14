@@ -7,8 +7,6 @@ else
   echo "Restart container $1"
 fi
 
-sudo docker system prune -f
-
 sudo docker compose down 
 
 sudo docker compose build 
