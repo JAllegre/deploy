@@ -45,8 +45,8 @@ services:
     environment:
       - PORT=8083
     build:
-      context: ../miam2/ #Must be the root of the project to get shared/common files
-      dockerfile: ../miam2/front.Dockerfile
+      context: ../miam/ #Must be the root of the project to get shared/common files
+      dockerfile: ../miam/front.Dockerfile
     deploy:
       restart_policy:
         condition: any
@@ -56,8 +56,8 @@ services:
     environment:
       - PORT=8084
     build:
-      context: ../miam2/ #Must be the root of the project to get shared/common files
-      dockerfile: ../miam2/back.Dockerfile
+      context: ../miam/ #Must be the root of the project to get shared/common files
+      dockerfile: ../miam/back.Dockerfile
     volumes:
       - /data/miamdb:/data/miamdb
     deploy:
