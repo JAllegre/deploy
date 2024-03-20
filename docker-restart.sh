@@ -1,8 +1,10 @@
 #!/bin/bash
 
+sudo docker system prune -f
+
 if [ "$1" = "" ]; then
-  echo "Prune and Restart all containers"
-  sudo docker system prune -f
+  echo "Restart all containers"
+  
 else
   echo "Restart container $1"
 fi
