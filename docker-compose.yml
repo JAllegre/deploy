@@ -59,7 +59,7 @@ services:
       context: ../miam/ #Must be the root of the project to get shared/common files
       dockerfile: ../miam/back.Dockerfile
     volumes:
-      - /data/miamdb:/data/miamdb
+      - /data/sqllitedb:/data/sqllitedb
     deploy:
       restart_policy:
         condition: any
