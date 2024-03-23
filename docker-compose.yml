@@ -22,8 +22,6 @@ services:
   root-page:
     container_name: root-page
     image: "root-page:latest"
-    environment:
-      - PORT=8080
     build:
       context: ../root-page
     deploy:
@@ -32,8 +30,6 @@ services:
   cv:
     container_name: cv
     image: "cv:latest"
-    environment:
-      - PORT=8082
     build:
       context: ../cv
     deploy:
@@ -42,8 +38,6 @@ services:
   miam-front:
     container_name: miam-front
     image: "miam-front:latest"
-    environment:
-      - PORT=8083
     build:
       context: ../miam/ #Must be the root of the project to get shared/common files
       dockerfile: ../miam/front.Dockerfile
