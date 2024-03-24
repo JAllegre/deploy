@@ -15,7 +15,7 @@ services:
       - root-page
       - cv
       - miam-front
-      - miam-back
+      - api-server
     deploy:
       restart_policy:
         condition: any
@@ -44,14 +44,13 @@ services:
     deploy:
       restart_policy:
         condition: any
-  miam-back:
-    container_name: miam-back
-    image: "miam-back:latest"
+  api-server:
+    container_name: api-server
+    image: "api-server:latest"
     environment:
       - PORT=8084
     build:
-      context: ../miam/ #Must be the root of the project to get shared/common files
-      dockerfile: ../miam/back.Dockerfile
+      context: ../api-server/ #Must be the root of the project to get shared/common files
     volumes:
       - /data/sqllitedb:/data/sqllitedb
     deploy:
