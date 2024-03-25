@@ -39,8 +39,8 @@ services:
     container_name: miam-front
     image: "miam-front:latest"
     build:
-      context: ../miam/ #Must be the root of the project to get shared/common files
-      dockerfile: ../miam/front.Dockerfile
+      context: ../ #Must be the root of the project to get shared/common files
+      dockerfile: ../miam/Dockerfile
     deploy:
       restart_policy:
         condition: any
